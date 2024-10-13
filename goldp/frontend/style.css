@@ -1,0 +1,95 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+    background-image: url('gold.jpeg'); /* Background image */
+    background-size: cover; /* Cover entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* No repeat */
+    background-attachment: fixed; /* Fixed background on scroll */
+}
+
+/* Container Styles */
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    animation: fadeIn 0.5s ease-in; /* Fade-in animation */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children */
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5em; /* Slightly larger heading */
+    margin-bottom: 20px;
+    color: #333; /* Dark color for contrast */
+}
+
+/* Price and Result Styles */
+.price, .result {
+    font-size: 1.5em; /* Size for price/result text */
+    color: #333; /* Text color */
+    margin-top: 10px;
+}
+
+/* Button Styles */
+button {
+    margin-top: 20px; /* Space above button */
+    padding: 10px 20px; /* Button padding */
+    font-size: 1em; /* Button font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: #ffc107; /* Bootstrap warning color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition effects */
+}
+
+button:hover {
+    background-color: #e0a800; /* Darker shade on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Input Styles */
+input {
+    padding: 10px; /* Input padding */
+    font-size: 1em; /* Input font size */
+    margin-top: 20px; /* Space above inputs */
+    width: 250px; /* Adjust input width */
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc; /* Light border */
+
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully opaque */
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 576px) {
+    .container {
+        padding: 20px; /* Less padding on small screens */
+        width: 90%; /* Full width for smaller screens */
+    }
+    
+    h1 {
+        font-size: 2em; /* Smaller heading on small screens */
+    }
+
+    input {
+        width: 100%; /* Full width input on small screens */
+    };
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency to Gold Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+    <!-- Add history management to the head -->
+<script>
+    function navigateTo(path) {
+        window.history.pushState({}, path, window.location.origin + path);
+        if (path === '/users') {
+            document.getElementById('usersListContainer').style.display = 'block'; // Show users list
+            fetchUsers(); // Fetch user details
+        } else {
+            document.getElementById('usersListContainer').style.display = 'none'; // Hide users list
+        }
+    }
+
+    window.onpopstate = () => {
+        const path = window.location.pathname;
+        if (path === '/users') {
+            document.getElementById('usersListContainer').style.display = 'block'; // Show users list
+            fetchUsers(); // Fetch user details
+        } else {
+            document.getElementById('usersListContainer').style.display = 'none'; // Hide users list
+        }
+    };
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" style="display:none;">
+            <h2>Register</h2>
+            <input type="text" id="regUsername" placeholder="Username">
+            <input type="password" id="regPassword" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+
+        <!-- Gold Converter App -->
+        <div id="converterApp" style="display:none;">
+            <h1>Live Gold Price (INR)</h1>
+            <div id="goldPrice" class="price">Fetching...</div>
+            <div>
+                <h2>Calculate Gold Amount</h2>
+                <input type="number" id="amount" placeholder="Enter amount in INR">
+                <button onclick="calculateGold()">Calculate</button>
+            </div>
+            <div id="goldAmount" class="result"></div>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <!-- Users List (for /users page) -->
+        <div id="usersListContainer" style="display:none;">
+            <h2>Registered Users</h2>
+            <ul id="usersList"></ul>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+
+    <script>
+        // Show users list if the current path is /users
+        if (window.location.pathname === '/users') {
+            document.getElementById('usersListContainer').style.display = 'block';  // Show users list
+            fetchUsers(); // Fetch user details
+        } else {
+            document.getElementById('usersListContainer').style.display = 'none'; // Hide users list for other pages
+        }
+    </script>
+</body>
+</html>
